@@ -9,22 +9,19 @@ var app = express();
 //     next();
 // })
 
-// Authentication
-
-// 可以將app.use寫成一個變數function直接帶入app.use
 var login = function (req, res, next) {
-    console.log('Someone has logged In');
-    // kk();
+    console.log('Someone want to log in');
     next();
 }
-app.use(login);
+// 在這邊call
+// app.use(login);
 
 // Go Index
 // app.get('/', function (req, res) {
 //     res.send('<h1>Index</h1>')
 // })
 
-// 也可以直接帶入app.get的路徑下一個參數：
+// 也可以直接帶入app.get的路徑下一個參數直接call：
 app.get('/', login, function (req, res) {
     res.send('<h1>Index</h1>');
 })
